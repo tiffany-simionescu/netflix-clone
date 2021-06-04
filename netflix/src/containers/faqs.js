@@ -2,7 +2,7 @@ import React from 'react';
 import { Accordion, OptForm } from '../components';
 import faqsData from '../fixtures/faqs.json';
 
-export const FaqsContainer = () => {
+const FaqsContainer = () => {
   return (
     <Accordion>
       <Accordion.Title>Frequently Asked Questions</Accordion.Title>
@@ -25,5 +25,7 @@ export const FaqsContainer = () => {
         </OptForm.Text>
       </OptForm>
     </Accordion>
-  )
+  );
 };
+
+export default FaqsContainer;
