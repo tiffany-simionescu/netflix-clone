@@ -1,3 +1,8 @@
+
+- Cloud Firestore for the Database
+- Firebase for authentication and seccurity
+- React for frontend framework
+- Styled COmponents
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
