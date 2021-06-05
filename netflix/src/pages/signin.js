@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../context/firebase';
 import { FooterContainer, HeaderContainer } from '../containers';
 import { Form } from '../components';
+import { validateEmail } from '../functions';
 import * as ROUTES from '../constants/routes';
 
 const Signin = () => {
@@ -12,14 +13,6 @@ const Signin = () => {
 
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
-
-  const validateEmail = (emailAddress) => {
-    if (/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailAddress)) {
-      return true;
-    } else {
-      return false;
-    };
-  };
 
   const isInvalid = password === '' || 
         password.length < 4 || 
