@@ -4,7 +4,8 @@ import {
   Input,
   Button,
   Text,
-  Break } from './styles/opt-form';
+  Break 
+} from './styles/opt-form';
 
 const OptForm = ({ children, ...restProps }) => {
   return <Container { ...restProps }>{children}</Container>;

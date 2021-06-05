@@ -6,7 +6,8 @@ import {
   Link,
   Title,
   Text,
-  Break } from './styles/footer.js';
+  Break 
+} from './styles/footer.js';
 
 const Footer = ({ children, ...restProps }) => {
   return <Container { ...restProps}>{children}</Container>;

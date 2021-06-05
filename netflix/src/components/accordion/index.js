@@ -6,7 +6,8 @@ import {
   Frame,
   Item,
   Header,
-  Body } from './styles/accordion';
+  Body 
+} from './styles/accordion';
 import Open from '../../images/icons/add.png';
 import Close from '../../images/icons/close-slim.png';
 

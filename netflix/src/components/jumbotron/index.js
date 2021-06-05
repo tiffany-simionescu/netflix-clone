@@ -6,7 +6,8 @@ import {
   Pane, 
   Title, 
   SubTitle, 
-  Image } from './styles/jumbotron';
+  Image 
+} from './styles/jumbotron';
 
 const Jumbotron = ({ children, direction = 'row', ...restProps }) => {
   return (
