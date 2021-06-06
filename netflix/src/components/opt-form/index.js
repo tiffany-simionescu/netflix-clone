@@ -11,11 +11,11 @@ const OptForm = ({ children, ...restProps }) => {
   return <Container { ...restProps }>{children}</Container>;
 };
 
-OptForm.Input = function OptFormInput({ ...restProps }) {
+OptForm.Input = ({ ...restProps }) => {
   return <Input { ...restProps} />;
 };
 
-OptForm.Button = function OptFormButton({ children, ...restProps }) {
+OptForm.Button = ({ children, ...restProps }) => {
   return (
     <Button { ...restProps}>
       {children} 
@@ -24,11 +24,11 @@ OptForm.Button = function OptFormButton({ children, ...restProps }) {
   );
 };
 
-OptForm.Text = function OptFormText({ children, ...restProps }) {
+OptForm.Text = ({ children, ...restProps }) => {
   return <Text { ...restProps}>{children}</Text>;
 };
 
-OptForm.Break = function OptFormBreak({ ...restProps }) {
+OptForm.Break = ({ ...restProps }) => {
   return <Break { ...restProps} />;
 };
 
