@@ -29,7 +29,7 @@ Accordion.Frame = ({ children, ...restProps }) => {
   return <Frame { ...restProps }>{children}</Frame>;
 };
 
-Accordion.Item = ({ children, ...restProps }) => {
+Accordion.Item = function AccordionItem({ children, ...restProps }) {
   const [toggleShow, setToggleShow] = useState(false);
 
   return (
@@ -39,7 +39,7 @@ Accordion.Item = ({ children, ...restProps }) => {
   );
 };
 
-Accordion.Header = ({ children, ...restProps }) => {
+Accordion.Header = function AccordionHeader({ children, ...restProps }) {
   const { toggleShow, setToggleShow } = useContext(ToggleContext);
 
   return (
@@ -54,7 +54,7 @@ Accordion.Header = ({ children, ...restProps }) => {
   );
 };
 
-Accordion.Body = ({ children, ...restProps }) => {
+Accordion.Body = function AccordionBody({ children, ...restProps }) {
   const { toggleShow } = useContext(ToggleContext);
 
   return toggleShow ? <Body { ...restProps }>{children}</Body> : null;
