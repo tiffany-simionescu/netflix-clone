@@ -6,6 +6,7 @@ import * as ROUTES from '../constants/routes';
 import logo from '../images/logo/logo.svg';
 
 export const BrowseContainer = ({ slides}) => {
+  const [searchTerm, setSearchTerm] = useState('')
   const [profile, setProfile] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -30,6 +31,7 @@ export const BrowseContainer = ({ slides}) => {
             <Header.TextLink>Movies</Header.TextLink>
           </Header.Group>
           <Header.Group>
+            <Header.Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <Header.Profile>
               <Header.Picture src={user.photoURL} />
               <Header.Dropdown>
