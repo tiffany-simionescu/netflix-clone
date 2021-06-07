@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../context/firebase';
 import { Form } from '../components';
@@ -14,6 +14,10 @@ const Signin = () => {
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    setEmailAddress(window.localStorage.getItem('emailForRegistration'))
+  }, []);
 
   const isInvalid = password === '' ||
     password.length < 2 ||
