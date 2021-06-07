@@ -1,9 +1,9 @@
 import React from 'react';
 import { Header } from '../components';
 import * as ROUTES from '../constants/routes';
-import logo from '../images/logo/logo.svg';
+import logo from '../logo.svg';
 
-export function HeaderContainer({ children }) {
+export const HeaderContainer = ({ children }) => {
   return (
     <Header>
       <Header.Frame>

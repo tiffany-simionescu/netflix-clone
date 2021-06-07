@@ -19,7 +19,7 @@ import {
   Logo,
 } from './styles/header';
 
-export default function Header({ bg = true, children, ...restProps }) {
+const Header = ({ bg = true, children, ...restProps }) => {
   return bg ? (
     <Background data-testid="header-bg" {...restProps}>
       {children}
@@ -29,15 +29,15 @@ export default function Header({ bg = true, children, ...restProps }) {
   );
 }
 
-Header.Frame = function HeaderFrame({ children, ...restProps }) {
+Header.Frame = ({ children, ...restProps }) => {
   return <Container {...restProps}>{children}</Container>;
 };
 
-Header.Group = function HeaderGroup({ children, ...restProps }) {
+Header.Group = ({ children, ...restProps }) => {
   return <Group {...restProps}>{children}</Group>;
 };
 
-Header.Logo = function HeaderLogo({ to, ...restProps }) {
+Header.Logo = ({ to, ...restProps }) => {
   return (
     <ReachRouterLink to={to}>
       <Logo {...restProps} />
@@ -56,7 +56,7 @@ Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps 
       <SearchInput
         value={searchTerm}
         onChange={({ target }) => setSearchTerm(target.value)}
-        placeholder="Search films and series"
+        placeholder="Search movies and series"
         active={searchActive}
         data-testid="search-input"
       />
@@ -64,38 +64,40 @@ Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps 
   );
 };
 
-Header.Profile = function HeaderProfile({ children, ...restProps }) {
+Header.Profile = ({ children, ...restProps }) => {
   return <Profile {...restProps}>{children}</Profile>;
 };
 
-Header.Feature = function HeaderFeature({ children, ...restProps }) {
+Header.Feature = ({ children, ...restProps }) => {
   return <Feature>{children}</Feature>;
 };
 
-Header.Picture = function HeaderPicture({ src, ...restProps }) {
+Header.Picture = ({ src, ...restProps }) => {
   return <Picture {...restProps} src={`/images/users/${src}.png`} />;
 };
 
-Header.Dropdown = function HeaderDropdown({ children, ...restProps }) {
+Header.Dropdown = ({ children, ...restProps }) => {
   return <Dropdown {...restProps}>{children}</Dropdown>;
 };
 
-Header.TextLink = function HeaderTextLink({ children, ...restProps }) {
+Header.TextLink = ({ children, ...restProps }) => {
   return <Link {...restProps}>{children}</Link>;
 };
 
-Header.PlayButton = function HeaderPlayButton({ children, ...restProps }) {
+Header.PlayButton = ({ children, ...restProps }) => {
   return <PlayButton {...restProps}>{children}</PlayButton>;
 };
 
-Header.FeatureCallOut = function HeaderFeatureCallOut({ children, ...restProps }) {
+Header.FeatureCallOut = ({ children, ...restProps }) => {
   return <FeatureCallOut {...restProps}>{children}</FeatureCallOut>;
 };
 
-Header.Text = function HeaderText({ children, ...restProps }) {
+Header.Text = ({ children, ...restProps }) => {
   return <Text {...restProps}>{children}</Text>;
 };
 
-Header.ButtonLink = function HeaderButtonLink({ children, ...restProps }) {
+Header.ButtonLink = ({ children, ...restProps }) => {
   return <ButtonLink {...restProps}>{children}</ButtonLink>;
 };
+
+export default Header;

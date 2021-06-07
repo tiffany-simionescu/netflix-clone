@@ -1,4 +1,4 @@
-export default function selectionFilter({ series, films } = []) {
+const selectionFilter = ({ series, films } = []) => {
   return {
     series: [
       { title: 'Documentaries', data: series?.filter((item) => item.genre === 'documentaries') },
@@ -15,4 +15,6 @@ export default function selectionFilter({ series, films } = []) {
       { title: 'Romance', data: films?.filter((item) => item.genre === 'romance') },
     ],
   };
-};
+}
+
+export default selectionFilter;

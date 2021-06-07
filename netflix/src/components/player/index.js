@@ -4,7 +4,7 @@ import { Container, Button, Overlay, Inner, Close } from './styles/player';
 
 export const PlayerContext = createContext();
 
-export default function Player({ children, ...restProps }) {
+const Player = ({ children, ...restProps }) => {
   const [showPlayer, setShowPlayer] = useState(false);
 
   return (
@@ -41,3 +41,5 @@ Player.Button = function PlayerButton({ ...restProps }) {
     </Button>
   );
 };
+
+export default Player;

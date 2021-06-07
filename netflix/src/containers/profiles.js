@@ -1,9 +1,9 @@
 import React from 'react';
 import { Header, Profiles } from '../components';
 import * as ROUTES from '../constants/routes';
-import logo from '../images/logo/logo.svg';
+import logo from '../logo.svg';
 
-export function SelectProfileContainer({ user, setProfile }) {
+export const SelectProfileContainer = ({ user, setProfile }) => {
   return (
     <>
       <Header bg={false}>

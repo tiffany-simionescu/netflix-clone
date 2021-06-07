@@ -3,7 +3,7 @@ import { Container, Frame, Title, Item, Inner, Header, Body } from './styles/acc
 
 const ToggleContext = createContext();
 
-export default function Accordion({ children, ...restProps }) {
+const Accordion = ({ children, ...restProps }) => {
   return (
     <Container {...restProps}>
       <Inner>{children}</Inner>
@@ -11,11 +11,11 @@ export default function Accordion({ children, ...restProps }) {
   );
 }
 
-Accordion.Title = function AccordionTitle({ children, ...restProps }) {
+Accordion.Title = ({ children, ...restProps }) => {
   return <Title {...restProps}>{children}</Title>;
 };
 
-Accordion.Frame = function AccordionFrame({ children, ...restProps }) {
+Accordion.Frame = ({ children, ...restProps }) => {
   return <Frame {...restProps}>{children}</Frame>;
 };
 
@@ -55,3 +55,5 @@ Accordion.Body = function AccordionBody({ children, ...restProps }) {
     </Body>
   );
 };
+
+export default Accordion;

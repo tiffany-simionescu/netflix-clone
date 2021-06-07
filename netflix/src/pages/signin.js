@@ -1,35 +1,34 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../context/firebase';
-import { FooterContainer } from '../containers/footer';
-import { HeaderContainer } from '../containers/header';
 import { Form } from '../components';
+import { HeaderContainer } from '../containers/header';
+import { FooterContainer } from '../containers/footer';
 import { validateEmail } from '../functions';
 import * as ROUTES from '../constants/routes';
 
 const Signin = () => {
+  const history = useHistory();
+  const { firebase } = useContext(FirebaseContext);
+
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const history = useHistory();
-  const { firebase } = useContext(FirebaseContext);
+  const isInvalid = password === '' ||
+    password.length < 2 ||
+    password.length > 60 || 
+    emailAddress === '' ||
+    !validateEmail(emailAddress);
 
-  const isInvalid = password === '' || 
-        password.length < 4 || 
-        password.length > 60 || 
-        password.includes("~") || 
-        emailAddress === '' ||
-        validateEmail(emailAddress) === false;
+  const handleSignin = (event) => {
+    event.preventDefault();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    firebase
+    return firebase
       .auth()
       .signInWithEmailAndPassword(emailAddress, password)
       .then(() => {
-        history.push(ROUTES.BROWSE)
+        history.push(ROUTES.BROWSE);
       })
       .catch((error) => {
         setEmailAddress('');
@@ -43,22 +42,22 @@ const Signin = () => {
       <HeaderContainer>
         <Form>
           <Form.Title>Sign In</Form.Title>
-          {error && <Form.Error>{error}</Form.Error>}
+          {error && <Form.Error data-testid="error">{error}</Form.Error>}
 
-          <Form.Base onSubmit={handleSubmit} method="POST">
-            <Form.Input 
+          <Form.Base onSubmit={handleSignin} method="POST">
+            <Form.Input
               placeholder="Email address"
               value={emailAddress}
               onChange={({ target }) => setEmailAddress(target.value)}
             />
-            <Form.Input 
+            <Form.Input
               type="password"
+              value={password}
               autoComplete="off"
               placeholder="Password"
-              value={password}
               onChange={({ target }) => setPassword(target.value)}
             />
-            <Form.Submit disabled={isInvalid} type="submit">
+            <Form.Submit disabled={isInvalid} type="submit" data-testid="sign-in">
               Sign In
             </Form.Submit>
           </Form.Base>
@@ -74,6 +73,6 @@ const Signin = () => {
       <FooterContainer />
     </>
   );
-};
+}
 
 export default Signin;
