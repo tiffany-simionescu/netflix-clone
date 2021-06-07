@@ -58,7 +58,7 @@ export const Item = styled.li`
     font-weight: bold;
     color: white;
   }
-  
+
   &:last-of-type {
     margin-right: 0;
   }

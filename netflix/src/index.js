@@ -12,5 +12,5 @@ render(
       <GlobalStyles />
       <App />
     </FirebaseContext.Provider>
-  </>, 
+  </>,  
   document.getElementById('root'));

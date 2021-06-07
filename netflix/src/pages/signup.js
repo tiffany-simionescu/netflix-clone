@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { FirebaseContext } from '../context/firebase';
-import { FooterContainer, HeaderContainer } from '../containers';
+import { FooterContainer } from '../containers/footer';
+import { HeaderContainer } from '../containers/header';
 import { Form } from '../components';
 import { validateEmail } from '../functions';
 import * as ROUTES from '../constants/routes';
