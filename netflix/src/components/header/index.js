@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as ReachRouterLink } from 'react-router-dom';
 import {
   Container,
@@ -48,12 +48,17 @@ Header.Logo = ({ to, ...restProps }) => {
 Header.Search = function HeaderSearch({ searchTerm, setSearchTerm, ...restProps }) {
   const [searchActive, setSearchActive] = useState(false);
 
+  useEffect(() => {
+    searchActive ? document.getElementById("searchInput").focus() : setSearchActive(false)
+  }, [searchActive])
+
   return (
     <Search {...restProps}>
       <SearchIcon onClick={() => setSearchActive((searchActive) => !searchActive)} data-testid="search-click">
         <img src="/images/icons/search.png" alt="Search" />
       </SearchIcon>
       <SearchInput
+        id="searchInput"
         value={searchTerm}
         onChange={({ target }) => setSearchTerm(target.value)}
         placeholder="Search movies and series"
