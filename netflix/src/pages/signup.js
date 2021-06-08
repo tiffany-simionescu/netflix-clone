@@ -23,7 +23,8 @@ const Signup = () => {
 
   const handleSignup = (event) => {
     event.preventDefault();
-
+    window.localStorage.removeItem("emailForRegistration");
+    
     return firebase
       .auth()
       .createUserWithEmailAndPassword(emailAddress, password)

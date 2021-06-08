@@ -15,8 +15,15 @@ const Signin = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  const emailForRegistration = window.localStorage.getItem('emailForRegistration');
+
   useEffect(() => {
-    setEmailAddress(window.localStorage.getItem('emailForRegistration'))
+    !emailForRegistration ? 
+      setEmailAddress('demo@email.com') :
+    setEmailAddress(emailForRegistration)
+
+    !emailForRegistration ?
+      setPassword('123456') : setPassword('')
   }, []);
 
   const isInvalid = password === '' ||
@@ -27,6 +34,7 @@ const Signin = () => {
 
   const handleSignin = (event) => {
     event.preventDefault();
+    window.localStorage.removeItem("emailForRegistration");
 
     return firebase
       .auth()
