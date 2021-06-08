@@ -20,7 +20,7 @@ const Signin = () => {
   useEffect(() => {
     !emailForRegistration ? 
       setEmailAddress('demo@email.com') :
-    setEmailAddress(emailForRegistration)
+      setEmailAddress(emailForRegistration)
 
     !emailForRegistration ?
       setPassword('123456') : setPassword('')
